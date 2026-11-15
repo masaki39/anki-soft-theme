@@ -1,0 +1,161 @@
+/* ===== Soft Theme for Anki ===== */
+body.st {
+  --st-bg: #f4f5f8;
+  --st-card: #ffffff;
+  --st-text: #1f2430;
+  --st-sub: #7a8191;
+  --st-line: #e7e9ef;
+  --st-hover: #f1f3f9;
+  --st-accent: #5b6cf0;
+  --st-accent-soft: #eef0ff;
+  --st-new: #3b82f6;
+  --st-learn: #f97316;
+  --st-review: #16a34a;
+  --st-shadow: 0 1px 2px rgba(20,24,40,.04), 0 6px 24px rgba(20,24,40,.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", sans-serif !important;
+  color: var(--st-text);
+  background: var(--st-bg) !important;
+  -webkit-font-smoothing: antialiased;
+}
+body.st.nightMode {
+  --st-bg: #17181c;
+  --st-card: #212228;
+  --st-text: #e8e9ee;
+  --st-sub: #8d92a0;
+  --st-line: #2d2f37;
+  --st-hover: #2a2c34;
+  --st-accent: #8b97ff;
+  --st-accent-soft: #2b2e47;
+  --st-new: #60a5fa;
+  --st-learn: #fb923c;
+  --st-review: #4ade80;
+  --st-shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.25);
+}
+
+/* ---------- 上部ツールバー ---------- */
+body.st-toolbar { background: var(--st-bg) !important; }
+body.st-toolbar .header { border-bottom: none !important; padding: 8px 12px 4px; }
+body.st-toolbar .toolbar {
+  background: var(--st-card) !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: var(--st-shadow) !important;
+}
+body.st-toolbar .hitem {
+  font-weight: 600 !important;
+  font-size: 13px;
+  color: var(--st-sub) !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: background .15s, color .15s;
+}
+body.st-toolbar .hitem:hover { background: var(--st-hover) !important; color: var(--st-text) !important; }
+body.st-toolbar .hitem:active { background: var(--st-accent-soft) !important; color: var(--st-accent) !important; }
+
+/* ---------- デッキ一覧 ---------- */
+body.st-decks { margin: 1.5em 1em 1em !important; }
+body.st-decks center > table {
+  background: var(--st-card);
+  border: none !important;
+  border-radius: 16px !important;
+  box-shadow: var(--st-shadow) !important;
+  padding: 12px 10px !important;
+  min-width: 480px;
+  border-collapse: separate;
+}
+body.st-decks th {
+  color: var(--st-sub);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--st-line) !important;
+  padding: 6px 12px 10px !important;
+}
+body.st-decks tr.deck td {
+  border-bottom: none !important;
+  padding: 7px 12px !important;
+  font-size: 14px;
+}
+body.st-decks .current td,
+body.st-decks tr:hover:not(.top-level-drag-row) td { background: var(--st-hover) !important; }
+body.st-decks .current td:first-child,
+body.st-decks tr:hover:not(.top-level-drag-row) td:first-child { border-radius: 10px 0 0 10px !important; }
+body.st-decks .current td:last-child,
+body.st-decks tr:hover:not(.top-level-drag-row) td:last-child { border-radius: 0 10px 10px 0 !important; }
+body.st-decks .current a.deck { color: var(--st-accent) !important; }
+body.st-decks a.deck { color: var(--st-text); font-weight: 500; }
+body.st-decks a.deck:hover { text-decoration: none !important; color: var(--st-accent); }
+body.st-decks .collapse { color: var(--st-sub) !important; font-weight: 600; }
+body.st-decks .filtered { color: var(--st-accent) !important; font-style: italic; }
+
+/* 数字をピル型バッジに */
+body.st-decks .new-count, body.st-decks .learn-count, body.st-decks .review-count, body.st-decks .zero-count {
+  display: inline-block;
+  min-width: 2.2em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+body.st-decks .new-count    { color: var(--st-new) !important;    background: color-mix(in srgb, var(--st-new) 13%, transparent); }
+body.st-decks .learn-count  { color: var(--st-learn) !important;  background: color-mix(in srgb, var(--st-learn) 13%, transparent); }
+body.st-decks .review-count { color: var(--st-review) !important; background: color-mix(in srgb, var(--st-review) 13%, transparent); }
+body.st-decks .zero-count   { color: var(--st-sub) !important; opacity: .45; }
+body.st-decks .gears { opacity: .4; }
+body.st-decks #studiedToday { color: var(--st-sub); font-size: 13px; }
+
+/* ---------- デッキ概要（学習開始画面） ---------- */
+body.st-overview h3 { font-size: 22px; font-weight: 700; margin: 1.2em 0 .6em; }
+body.st-overview center > table, body.st-overview .descfont {
+  background: var(--st-card);
+  border-radius: 16px;
+  box-shadow: var(--st-shadow);
+}
+body.st-overview center > table { padding: 18px 28px; margin-top: 10px; }
+body.st-overview td { font-size: 14px; padding: 3px 6px; }
+body.st-overview .new-count, body.st-overview .learn-count, body.st-overview .review-count { font-weight: 700; }
+body.st-overview .new-count { color: var(--st-new) !important; }
+body.st-overview .learn-count { color: var(--st-learn) !important; }
+body.st-overview .review-count { color: var(--st-review) !important; }
+body.st-overview #study {
+  background: var(--st-accent) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 10px 34px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin-top: 16px;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--st-accent) 35%, transparent) !important;
+  transition: transform .12s, filter .12s;
+}
+body.st-overview #study:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+/* ---------- 下部バー・回答ボタン ---------- */
+body.st-bottombar, body.st-reviewbar { background: var(--st-bg) !important; }
+body.st-reviewbar #outer { border-top: 1px solid var(--st-line) !important; }
+body.st-bottombar button, body.st-reviewbar button {
+  -webkit-appearance: none;
+  background: var(--st-card) !important;
+  color: var(--st-text) !important;
+  border: 1px solid var(--st-line) !important;
+  border-radius: 10px !important;
+  padding: 6px 16px !important;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(20,24,40,.06) !important;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+body.st-bottombar button:hover, body.st-reviewbar button:hover {
+  background: var(--st-hover) !important;
+  border-color: var(--st-accent) !important;
+}
+body.st-reviewbar .stattxt, body.st-reviewbar .nobold { color: var(--st-sub) !important; }
